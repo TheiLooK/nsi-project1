@@ -22,6 +22,7 @@
 
 from turtle import*
 from random import randint
+setup(1100,500)
 speed("fastest")
 hideturtle()
 up()
@@ -78,8 +79,8 @@ def joueurDeux(): # Texte Joueur 2
 
 def préparation(): # Cette fonction fait toute la préparation nécessaire au jeu :
 	grandRectangle() # Trace le contour
-	joueurUn()
-	joueurDeux()
+	joueurUn() # Texte Joueur 1
+	joueurDeux() # Texte Joueur 2
 	carré(-355,140,210) # Carré du dé joueur 1
 	carré(145,140,210) # Carré du dé joueur 2
 
