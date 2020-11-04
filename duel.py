@@ -64,20 +64,18 @@ def grandRectangle(): # Cette fonction fait un grand carré  pour définir la zo
 
 def joueurUn(): # Texte Joueur 1
 	goto(-250,150) 
-	write("Joueur 1",
+	write(joueur1,
 		align="center",
 		font=("Arial",30,"bold"))
 
 def joueurDeux(): # Texte Joueur 2
 	goto(250,150) 
-	write("Joueur 2",
+	write(joueur2,
 		align="center",
 		font=("Arial",30,"bold"))
 
 def préparation(): # Cette fonction fait toute la préparation nécessaire au jeu :
 	grandRectangle() # Trace le contour
-	joueurUn() # Texte Joueur 1
-	joueurDeux() # Texte Joueur 2
 	carré(-355,-70,210) # Carré du dé joueur 1
 	carré(145,-70,210) # Carré du dé joueur 2
 
@@ -153,7 +151,20 @@ préparation()
 # Le joueur 1 doit appuyer sur une touche pour lancer son dé
 
 
-joueur1 = input("Joueur 1 : Appuyez sur [entrer] pour lancer le dé :")
+joueur1 = input("Entrez le nom du joueur 1 puis appuyez sur [entrer] pour lancer le dé : ")
+
+while len(joueur1) > 16 : # Si le nom du joueur est trop long, il sera redemandé jusqu'à ce qu'il soit assez court
+	joueur1 = input("Votre prénom est trop long, essayez un prénom plus court : ")
+
+
+if joueur1 == "" or joueur1.count(" ") > 0 :
+	joueur1 = "Joueur 1"
+
+else :
+	joueur1 = joueur1.capitalize()
+
+
+joueurUn() # Texte Joueur 1
 lancéJoueur1 = lanceDé()
 
 x = -355
@@ -179,6 +190,7 @@ else :
 
 
 
+
 #       _                               ___  
 #      | |                             |__ \ 
 #      | | ___  _   _  ___ _   _ _ __     ) |
@@ -188,7 +200,20 @@ else :
 # Le joueur 2 doit appuyer sur une touche pour lancer son dé
 
 
-joueur2 = input("Joueur 2 : Appuyez sur [entrer] pour lancer le dé :")
+joueur2 = input("Entrez le nom du joueur 2 puis appuyez sur [entrer] pour lancer le dé : ")
+
+while len(joueur2) > 16 : # Si le nom du joueur est trop long, il sera redemandé jusqu'à ce qu'il soit assez court
+	joueur2 = input("Votre prénom est trop long, essayez un prénom plus court : ")
+
+
+if joueur2 == "" or joueur2.count(" ") > 0 :
+	joueur2 = "Joueur 2"
+
+else :
+	joueur2 = joueur2.capitalize()
+
+
+joueurDeux() # Texte Joueur 2
 lancéJoueur2 = lanceDé()
 
 x = 145
@@ -236,11 +261,11 @@ if lancéJoueur1 == lancéJoueur2 : # Dans le cas ou c'est une égalité
 	carré(-355,-70,210) # Carré du dé joueur 1
 	carré(145,-70,210) # Carré du dé joueur 2
 
-elif lancéJoueur1 > lancéJoueur2 : # Dans le cas ou le joueur 1 gagne
+elif lancéJoueur1 > lancéJoueur2 : # Dans le cas bou le joueur 1 gagne
 	goto(0,-180)
-	write("Le joueur 1 gagne !",
+	write(joueur1+" a gagné !",
 		align="center",
-		font=("Arial",50,"bold"))
+		font=("Arial",40,"bold"))
 
 	pencolor("green")
 	joueurUn()
@@ -252,9 +277,9 @@ elif lancéJoueur1 > lancéJoueur2 : # Dans le cas ou le joueur 1 gagne
 
 else : # Dans le cas ou le joueur 2 gagne
 	goto(0,-180)
-	write("Le joueur 2 gagne !",
+	write(joueur2+" a gagné !",
 		align="center",
-		font=("Arial",50,"bold"))
+		font=("Arial",40,"bold"))
 
 	pencolor("green")
 	joueurDeux()
