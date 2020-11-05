@@ -25,7 +25,7 @@
 # Cela veut dire que une maximun de 5 parties vont être joués, et donc le premier à 3 points gagne.
 
 # Voici la liste des choses qui sont dans ce programme mais qu'on ne trouve pas dans le cours :
-# (Il est possible qu'ils y soient mais pas a ma connaissance)
+# (Il est possible que nous nous trompons et qu'ils y soient)
 # - "time.sleep" pour faire attendre le programme
 # - "global scoreJoueur1" pour utiliser une variable globale dans une fonction
 
@@ -97,6 +97,7 @@ def préparation(): # Cette fonction fait toute la préparation nécessaire au j
 
 
 def duel():
+	clear()
 	préparation()
 	#       _                               __ 
 	#      | |                             /_ |
@@ -222,8 +223,11 @@ def duel():
 		global scoreJoueur2
 		scoreJoueur2 = scoreJoueur2 + 1
 
+	time.sleep(3)
+
 
 def score(): # Cette fonction affiche les points des joueurs
+	clear()
 	pencolor("blue")
 	goto(0,150)
 	write("Voici les résultats :",
@@ -233,6 +237,7 @@ def score(): # Cette fonction affiche les points des joueurs
 
 	global scoreJoueur1
 	scoreJoueur1Str = str(scoreJoueur1)
+	# On convertit le score en chaine de carractère, parce que la fonction write() l'aime pas les entiers
 	goto(-250,-180)
 	write(joueur1+" : "+scoreJoueur1Str+" points",
 		align="center",
@@ -241,11 +246,13 @@ def score(): # Cette fonction affiche les points des joueurs
 
 	global scoreJoueur2
 	scoreJoueur2Str = str(scoreJoueur2)
+	# On convertit le score en chaine de carractère, parce que la fonction write() n'aime pas les entiers
 	goto(250,-180)
 	write(joueur2+" : "+scoreJoueur2Str+" points",
 		align="center",
 		font=("Arial",30,"bold"))
-	scoreJoueur2 = int(scoreJoueur2)
+
+	time.sleep(3)
 
 
 
@@ -349,29 +356,36 @@ while len(joueur2) > 16 : # Si le nom du joueur est trop long, il sera redemand�
 	joueur2 = input("Votre prénom est trop long, essayez un prénom plus court : ")
 
 
-if joueur2 == "" or joueur2.count(" ") > 0 :
+if joueur2 == "" or joueur2.count(" ") > 0 : # Si le nom contient un espace ou est vide, 
 	joueur2 = "Joueur 2"
 
 else :
 	joueur2 = joueur2.capitalize()
 
 
-while scoreJoueur1 < 3 and scoreJoueur2 < 3 :
-	clear()
-	duel()
-	time.sleep(3)
-	clear()
-	score()
-	time.sleep(3)
 
-if scoreJoueur1 > scoreJoueur2 :
+#	_____                               _   
+#  / ____|                             | |  
+# | |  __  __ _  __ _ _ __   __ _ _ __ | |_ 
+# | | |_ |/ _` |/ _` | '_ \ / _` | '_ \| __|
+# | |__| | (_| | (_| | | | | (_| | | | | |_ 
+#  \_____|\__,_|\__, |_| |_|\__,_|_| |_|\__|
+#                __/ |                      
+#               |___/                       
+
+
+while scoreJoueur1 < 3 and scoreJoueur2 < 3 : # La boucle tourne jusqu'à ce qu'un joueur a 3 points
+	duel()
+	score()
+
+if scoreJoueur1 > scoreJoueur2 : # Dans le cas ou le joueur 1 gagne, afficher en rouge le gagnant
 	goto(0,0)
 	pencolor("red")
 	write(joueur1+" a gagné !!",
 		align="center",
 		font=("Arial",60,"bold"))
 
-else :
+else : # Dans le cas ou le joueur 2 gagne, afficher en rouge le gagnant
 	goto(0,0)
 	pencolor("red")
 	write(joueur2+" a gagné !!",
