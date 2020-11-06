@@ -397,6 +397,4 @@ else : # Dans le cas ou le joueur 2 gagne, afficher en rouge le gagnant
 # ----------------------------------------------------------------------------------------------------
 # ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ Programme ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 # ----------------------------------------------------------------------------------------------------
-
 # Entièrement réalisé par MELLANO Louka et MENZIN Mathéo
-# Dédicace à Jean et Michel. Leurs prénoms nous ont beaucoup aidé pour tester des CENTAINES de fois ce programme.
