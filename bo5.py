@@ -332,7 +332,7 @@ while len(joueur1) > 16 : # Si le nom du joueur est trop long, il sera redemand�
 	joueur1 = input("Votre prénom est trop long, essayez un prénom plus court : ")
 
 
-if joueur1 == "" or joueur1.count(" ") > 0 :
+if joueur1 == "" or joueur1.count(" ") > 0 : # Si le nom contient un espace ou est vide, son nom sera Joueur 1
 	joueur1 = "Joueur 1"
 
 else :
@@ -356,7 +356,7 @@ while len(joueur2) > 16 : # Si le nom du joueur est trop long, il sera redemand�
 	joueur2 = input("Votre prénom est trop long, essayez un prénom plus court : ")
 
 
-if joueur2 == "" or joueur2.count(" ") > 0 : # Si le nom contient un espace ou est vide, 
+if joueur2 == "" or joueur2.count(" ") > 0 : # Si le nom contient un espace ou est vide, son nom sera Joueur 2
 	joueur2 = "Joueur 2"
 
 else :
